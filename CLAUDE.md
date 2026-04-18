@@ -209,6 +209,13 @@ Default modes are in `modes/` (English). Additional language-specific modes are 
 2. User sets `language.modes_dir: modes/ja` in `config/profile.yml` → always use Japanese modes
 3. You detect a Japanese JD → suggest switching to Japanese modes
 
+- **Traditional Chinese (Taiwan market):** `modes/zh-TW/` — Traditional Chinese translations with Taiwan-specific vocabulary (正職/約聘, 年終獎金, 績效獎金, 勞基法第84-1條責任制, 勞保/健保/勞退, 特休, 競業禁止, 外商/本土/新創三分法, etc.). Includes `_shared.md`, `ping-gu.md` (evaluation), `ying-zheng.md` (apply), `pipeline.md`.
+
+**When to use Traditional Chinese modes:** If the user is targeting Traditional Chinese-language job postings, lives in Taiwan, or asks for Traditional Chinese output. Either:
+1. User says "use Traditional Chinese modes" or "使用繁體中文模式" → read from `modes/zh-TW/` instead of `modes/`
+2. User sets `language.modes_dir: modes/zh-TW` in `config/profile.yml` → always use Traditional Chinese modes
+3. You detect a Traditional Chinese JD or Taiwan-based company → suggest switching to `modes/zh-TW/`
+
 **When NOT to:** If the user applies to English-language roles, even at French, German, or Japanese companies, use the default English modes.
 
 ### Skill Modes

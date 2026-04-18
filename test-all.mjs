@@ -261,6 +261,45 @@ if (shared.includes('_profile.md')) {
   fail('_shared.md does NOT reference _profile.md');
 }
 
+// ── 8b. zh-TW LOCALE INTEGRITY ─────────────────────────────────────
+// Optional locale — warn if incomplete, don't fail if absent entirely.
+
+console.log('\n8b. zh-TW locale integrity (optional)');
+
+const zhTWFiles = [
+  'modes/zh-TW/_shared.md',
+  'modes/zh-TW/ping-gu.md',
+  'modes/zh-TW/ying-zheng.md',
+  'modes/zh-TW/pipeline.md',
+  'modes/zh-TW/README.md',
+];
+
+const zhTWPresent = zhTWFiles.filter(f => fileExists(f));
+const zhTWMissing = zhTWFiles.filter(f => !fileExists(f));
+
+if (zhTWPresent.length === 0) {
+  warn('modes/zh-TW/ not found — Taiwan locale not installed');
+} else if (zhTWMissing.length > 0) {
+  for (const f of zhTWMissing) {
+    fail(`zh-TW locale incomplete — missing: ${f}`);
+  }
+} else {
+  for (const f of zhTWFiles) {
+    pass(`zh-TW file exists: ${f}`);
+  }
+  const zhShared = readFile('modes/zh-TW/_shared.md');
+  if (zhShared.includes('台灣市場特有注意事項')) {
+    pass('modes/zh-TW/_shared.md has Taiwan market section');
+  } else {
+    fail('modes/zh-TW/_shared.md missing Taiwan market section');
+  }
+  if (zhShared.includes('_profile.md')) {
+    pass('modes/zh-TW/_shared.md references _profile.md');
+  } else {
+    fail('modes/zh-TW/_shared.md does NOT reference _profile.md');
+  }
+}
+
 // ── 9. CLAUDE.md INTEGRITY ──────────────────────────────────────
 
 console.log('\n9. CLAUDE.md integrity');

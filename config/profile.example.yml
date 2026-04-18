@@ -69,3 +69,26 @@ location:
   visa_status: "No sponsorship needed"
   # For remote roles outside your country:
   # onsite_availability: "1 week/month in any city"
+
+# ── Taiwan Market Settings ─────────────────────────────────────────────────────
+# Uncomment and configure if you're targeting the Taiwan job market.
+# 台灣市場設定（如果在台灣求職請取消注解並填寫）
+
+# language:
+#   primary: zh-TW
+#   modes_dir: modes/zh-TW    # Activate Taiwan locale modes
+
+# market: TW                  # Drives Taiwan-specific salary/law logic in modes
+
+# tw_preferences:
+#   company_types:            # Preferred company types (can select multiple)
+#     - foreign               # 外商台灣分公司
+#     - local_large           # 本土大企業（上市櫃）
+#     - startup               # 台灣新創
+#   regions:                  # Preferred work locations
+#     - taipei                # 台北/新北
+#     - hsinchu               # 新竹（科學園區）
+#     - remote                # 完全遠端
+#   salary_structure_preference: annual   # annual (年薪制) or monthly (月薪制)
+#   accept_responsibility_system: false   # 是否接受責任制（建議 false）
+#   target_range_twd: "800000-1200000"   # 年薪目標範圍（TWD）

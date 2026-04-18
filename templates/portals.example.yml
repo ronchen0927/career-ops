@@ -889,3 +889,44 @@ tracked_companies:
     scan_query: '"Maxim AI" OR "getmaxim" careers "engineer" OR "product"'
     notes: "AI evaluation and observability platform. Bangalore-based, mostly on-site."
     enabled: true
+
+# ── Taiwan Job Boards ──────────────────────────────────────────────────────────
+# Enable these if you're targeting the Taiwan job market.
+# 台灣求職平台（如要使用台灣職缺，請取消以下設定的注解並設為 enabled: true）
+#
+# Note: 104 requires Playwright (anti-scraping); others support WebFetch/API.
+# Scanner modules (lib/scanners/tw-*.mjs) handle board-specific logic.
+#
+# Usage: set enabled: true for each board you want to scan.
+
+taiwan_boards:
+  enabled: false       # Master switch — set true to activate any Taiwan board scanning
+
+  boards:
+    - name: CakeResume
+      type: api
+      base_url: https://www.cake.me
+      search_path: /jobs
+      note: "Taiwan startup-friendly platform. Supports WebFetch; API rate-limited."
+      enabled: false
+
+    - name: Yourator
+      type: api_or_scrape
+      base_url: https://www.yourator.co
+      search_path: /jobs
+      note: "Startup-focused jobs. WebFetch works for most listings."
+      enabled: false
+
+    - name: Meet.jobs
+      type: api
+      base_url: https://meet.jobs
+      search_path: /jobs
+      note: "International positions including Taiwan. WebFetch accessible."
+      enabled: false
+
+    - name: 104
+      type: playwright
+      base_url: https://www.104.com.tw
+      search_path: /jobs/search/
+      note: "Taiwan's largest job board. Requires Playwright; anti-scraping in place. Personal use only."
+      enabled: false

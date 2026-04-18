@@ -11,6 +11,9 @@ const HARD_EXPIRED_PATTERNS = [
   /the page you are looking for doesn.t exist/i,
   /diese stelle (ist )?(nicht mehr|bereits) besetzt/i,
   /offre (expirée|n'est plus disponible)/i,
+  /此職缺已關閉/,
+  /此職位不再接受應徵/,
+  /職缺已截止/,
 ];
 
 const LISTING_PAGE_PATTERNS = [
@@ -31,6 +34,9 @@ const APPLY_PATTERNS = [
   /easy apply/i,
   /start application/i,
   /ich bewerbe mich/i,
+  /立即應徵/,
+  /我要應徵/,
+  /應徵此職位/,
 ];
 
 const MIN_CONTENT_CHARS = 300;
